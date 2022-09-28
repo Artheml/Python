@@ -1,0 +1,60 @@
+import os
+
+
+print('--------- Bem vindo(a) ao sistema de Estoque --------- ')
+
+escolha = 0
+while escolha != 4:
+    print("escolha uma das opções abaixo"
+          "1- Reabastecer produto"
+          "2- Alterar produto"
+          "3- Remover produto"
+          "4- Arquivo: gravar ou ler produto")
+   escolha = int(input("Digite o número da opção escolhida: "))
+
+if escolha == 1:
+
+    estoque = [0, 100]
+    a = int(input("Digite a quantidade de produtos: "))
+
+    if a >= (100) in estoque:
+        print(" produto suficiente")
+
+    else:
+        print(" reabastecer estoque ")
+
+    sim_or_nao = input("sim ou não: ")
+
+    if sim_or_nao == "não":
+        print("Você escolheu não")
+    elif sim_or_nao == "sim":
+        str(input("Quantos produtos você deseja reabastecer ? "))
+    estoque.append(str(input("Estoque reabastecido com {}".format(a))))
+    print(a)
+
+if escolha == 2:
+    lista = ['cerveja', 'vinho', 'vodka', 'água', 'caipirinha', 'tequila']
+    print(lista)
+alterar = str(input("Digite o que deve ser alterado: "))
+count = int(input("Selecione a posição (observação: a posição começa do 0): "))
+lista[count] = alterar
+print(lista)
+
+if escolha == 3:
+    lista = ['cerveja', 'vinho', 'vodka', 'água', 'caipirinha', 'tequila']
+    print(lista)
+remove = str(input("Digite o que você quer remover: "))
+
+if remove in lista:
+   lista.remove(remove)
+print(lista)
+
+if escolha == 4:
+    lista = ['cerveja', 'vinho', 'vodka', 'água', 'caipirinha', 'tequila']
+ print(lista)
+arquivo = open("estoque,txt", "a")
+arquivo.writelines(lines + "\n" for lines in lista)
+
+arquivo = open("estoque,txt", "r")
+lista = arquivo.readline()
+print(lista)
