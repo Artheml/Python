@@ -68,7 +68,7 @@ while True:
 
 
 if escolha == 4:
-    estoque = ['cerveja', 'vinho', 'vodka', 'água', 'caipirinha', 'tequila']
+    estoque = ["cerveja", "vinho", "vodka", "água", "caipirinha", "tequila"]
  print(estoque)
 arquivo = open("estoque,txt", "a")
 arquivo.writelines(lines + "\n" for lines in estoque)
