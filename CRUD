@@ -1,60 +1,78 @@
 import os
 
+estoque = ["cerveja", "vinho", "vodka", "água", "caipirinha", "tequila"]
+numestoque = [0, 100]
 
-print('--------- Bem vindo(a) ao sistema de Estoque --------- ')
+print("--------- Bem vindo(a) ao sistema de Estoque --------- ")
 
-escolha = 0
-while escolha != 4:
-    print("escolha uma das opções abaixo"
-          "1- Reabastecer produto"
-          "2- Alterar produto"
-          "3- Remover produto"
+while True:
+ 
+ escolha = 0
+
+ while escolha != 4:
+     
+     print("escolha uma das opções abaixo"
+          "1- Verificar estoque ou rebastecer estoque \n"
+          "2- Alterar produto \n"
+          "3- Remover produto \n"
           "4- Arquivo: gravar ou ler produto")
-   escolha = int(input("Digite o número da opção escolhida: "))
+     escolha = int(input("Digite o número da opção escolhida: "))
 
-if escolha == 1:
+     if escolha == 1:
 
-    estoque = [0, 100]
-    a = int(input("Digite a quantidade de produtos: "))
+      numestoque = [0, 100]
+      a = int(input("Digite a quantidade de produtos: "))
 
-    if a >= (100) in estoque:
+ if a >= (100) in numestoque:
         print(" produto suficiente")
 
-    else:
+ else:
         print(" reabastecer estoque ")
+        print("Deseja reabastecer estoque?sim ou não? ")
+        sim_or_nao = input("sim ou não: ")
 
-    sim_or_nao = input("sim ou não: ")
-
-    if sim_or_nao == "não":
+ if sim_or_nao == "não":
         print("Você escolheu não")
-    elif sim_or_nao == "sim":
-        str(input("Quantos produtos você deseja reabastecer ? "))
-    estoque.append(str(input("Estoque reabastecido com {}".format(a))))
+
+
+ elif sim_or_nao == "sim":
+  
+    s = str(input("Qual produto você deseja reabastecer? cerveja, vinho, vodka, água, caipirinha ou tequila ?:  "))
+    estoque.append(s)
+    
+    estoque = [0, 100]
+   
+    a = int(input("O quanto você deseja reabastecer? "))
+    numestoque.append(str(input("Estoque reabastecido com {}".format(a))))
     print(a)
 
-if escolha == 2:
-    lista = ['cerveja', 'vinho', 'vodka', 'água', 'caipirinha', 'tequila']
-    print(lista)
-alterar = str(input("Digite o que deve ser alterado: "))
-count = int(input("Selecione a posição (observação: a posição começa do 0): "))
-lista[count] = alterar
-print(lista)
+ if escolha == 2:
+   
+    estoque = ["cerveja", "vinho", "vodka", "água", "caipirinha", "tequila"]
+    print(estoque)
+    alterar = str(input("Digite o que deve ser alterado: "))
+    count = int(input("Selecione a posição (observação: a posição começa do 0): "))
+    estoque[count] = alterar
+    print(estoque)
 
-if escolha == 3:
-    lista = ['cerveja', 'vinho', 'vodka', 'água', 'caipirinha', 'tequila']
-    print(lista)
-remove = str(input("Digite o que você quer remover: "))
+ if escolha == 3:
+    
+    estoque = ["cerveja", "vinho", "vodka", "água", "caipirinha", "tequila"]
+    print(estoque)
+    remove = str(input("Digite o que você quer remover: "))
 
-if remove in lista:
-   lista.remove(remove)
-print(lista)
+ elif remove in estoque:
+   estoque.remove(remove)
+   print(estoque)
+
+
 
 if escolha == 4:
-    lista = ['cerveja', 'vinho', 'vodka', 'água', 'caipirinha', 'tequila']
- print(lista)
+    estoque = ['cerveja', 'vinho', 'vodka', 'água', 'caipirinha', 'tequila']
+ print(estoque)
 arquivo = open("estoque,txt", "a")
-arquivo.writelines(lines + "\n" for lines in lista)
+arquivo.writelines(lines + "\n" for lines in estoque)
 
 arquivo = open("estoque,txt", "r")
-lista = arquivo.readline()
-print(lista)
+estoque = arquivo.readline()
+print(estoque)
