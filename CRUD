@@ -47,8 +47,7 @@ while True:
     numestoque.append(str(input("Estoque reabastecido com {}".format(a))))
     print(a)
 
- escolha = 0
-
+escolha = 0
  if escolha == 2:
   
     for alterar in estoque:
@@ -57,10 +56,14 @@ print(estoque)
     
 alterar = str(input("Digite o que deve ser alterado: "))
 count = int(input("Selecione a posição (Observação: a posição começa da contagem 0): "))
-if count == 1:
+if  count == 1:
     count= 0
 estoque[count] = alterar
 print(estoque)
+
+else:
+   estoque[count] = alterar
+   print(estoque)
 
 
 if escolha == 3:
@@ -76,17 +79,15 @@ if remove in estoque:
     estoque.remove(remove)
     print(estoque)
 else : 
-    print('Errado')
+    print("Erro")
     exit()
-
-
 
 
 if escolha == 4:
     
     estoque = ['cerveja', 'vinho', 'vodka', 'água', 'caipirinha', 'tequila']
     print(estoque)
-arquivo = open("estoque,txt", "a")
+arquivo = open("estoque,txt", "w")
 arquivo.writelines(lines + "\n" for lines in estoque)
 
 
