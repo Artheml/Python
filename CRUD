@@ -1,110 +1,95 @@
-estoque = ["cerveja", "vinho", "vodka", "água", "caipirinha", "tequila"]
-numestoque = [0, 100]
+#Controle de Estoque
+
+from ast import Num
+
+estoque = []
+numestoque = []
 
 print("--------- Bem vindo(a) ao sistema de Estoque --------- ")
 
 while True:
  
- escolha = 0
+    escolha = 0
 
- if escolha != 6:
+    if escolha != 7:
      
-     print('''Escolha uma das opções abaixo
-          1- Verificar estoque ou rebastecer estoque \n
-          2- Alterar produto \n
-          3- Remover produto \n
-          4- Gravar em arquivo \n
-          5- Importar em arquivo \n
-          6- Sair \n''')
-     escolha = int(input("Digite o número da opção escolhida: "))
+        print('''Escolha uma das opções abaixo
+        1- Inserir produto \n
+        2- Consultar produto \n
+        3- Alterar produto \n
+        4- Remover produto \n
+        5- Gravar arquivo \n
+        6- Importar em arquivo \n
+        7- Sair \n''')
+        escolha = int(input("Digite o número da opção escolhida: "))
 
-     if escolha == 1:
+        if escolha == 1:
 
-      numestoque = [0, 100]
-      a = int(input("Digite a quantidade de produtos: "))
-
- for a in numestoque:
-  if a >= (100) in numestoque:
-        print(" produto suficiente")
-
- else:
-        print(" reabastecer estoque ")
-        print("Deseja reabastecer estoque?sim ou não? ")
-        sim_or_nao = input("sim ou não: ")
-
- if sim_or_nao == "não":
-        print("Você escolheu não")
-        break
-
- elif sim_or_nao == "sim":
-  
-    s = str(input("Qual produto você deseja reabastecer? cerveja, vinho, vodka, água, caipirinha ou tequila ?:  "))
-    estoque.append(s)
-    
-    estoque = [0, 100]
-   
-    a = int(input("O quanto você deseja reabastecer? "))
-    numestoque.append(str(input("Estoque reabastecido com {}".format(a))))
-    print(a)
-
-escolha = 0
- if escolha == 2:
-  
-    for alterar in estoque:
-     estoque = ["cerveja", "vinho", "vodka", "água", "caipirinha", "tequila"]
-print(estoque)
-    
-alterar = str(input("Digite o que deve ser alterado: "))
-count = int(input("Selecione a posição (Observação: a posição começa da contagem 0): "))
-if  count == 1:
-    count= 0
-estoque[count] = alterar
-print(estoque)
-
-else:
-   estoque[count] = alterar
-   print(estoque)
+            insira = str(input(" Insira uma bebida:  "))
+            qtd = int(input(" Insira a quantidade: "))
+            estoque.append(insira)
+            numestoque.append(qtd)
+            print("Bebida inserida com sucesso! \n")
+            print(estoque)
+            print(numestoque)
+            
+             
 
 
-if escolha == 3:
-    
-   for remove in estoque:
-    estoque = ["cerveja", "vinho", "vodka", "água", "caipirinha", "tequila"]
 
-print(estoque)
+        elif escolha == 2:
+            consultar = str(input("Digite a bebida que deseja consultar: "))
+            if consultar in estoque:
+                print(" Essa bebida não está na lista! ")
+            else:
+                consultar = consultar+ '\n'
+                if consultar in estoque:
+                 print(" A bebida está na lista")
+            
+                else:
+                 print(" A bebida não está na lista. Deseja adicionar? ")
+                 print(" Digite 1 para sim e 2 para não.") 
+                 selec = int(input( "Selecione: "))
+                 if selec == 1:
+                     estoque.append(consultar)
+                     print("Bebida Adcionado!")
+                     print(estoque)
+               
+                 else:
+                     print("Voltar para o menu.")
 
-remove = str(input("Digite o que você quer remover: "))
-
-if remove in estoque:
-    estoque.remove(remove)
-    print(estoque)
-else : 
-    print("Erro")
-    exit()
+        if escolha == 3:
+            print(estoque)
+            alterar = input("Digite qual bebida deseja substituir: ")
+            count = int(input("Selecione a posição de troca da bebida.(OBS:A contagem começa do zero!): "))
+            estoque[count] = alterar 
+            print(estoque)
 
 
-if escolha == 4:
-    
-    estoque = ['cerveja', 'vinho', 'vodka', 'água', 'caipirinha', 'tequila']
-    print(estoque)
-arquivo = open("estoque,txt", "w")
-arquivo.writelines(lines + "\n" for lines in estoque)
+        elif escolha == 4:
+            print(estoque)
+            remover = input("Digite a bebida à ser removida: ")
+            if remover in estoque:
+                estoque.remove(remover)
+                print(estoque)
+            else:
+                delet =  remover+'\n'
+                estoque.remove(delet)
+                print(estoque)
 
+        if escolha == 5:
+            print(estoque)
+            arquivo = open("texto.txt","a")
+            arquivo.writelines(line + '\n' for line in estoque)
+            print("Arquivo salvo!")
+        
+            
+        elif escolha == 6:
+            arquivo = open("texto.txt", "r")
+            estoque = arquivo.readlines()
+            print(estoque)
+            print("Arquivo importado!")
 
-if escolha == 5:
-
-  estoque = ['cerveja', 'vinho', 'vodka', 'água', 'caipirinha', 'tequila']
-  print(estoque)
-  arquivo = open("estoque,txt", "r")
-estoque = arquivo.readline()
-print(estoque)
- 
-
-if escolha == 6:
- 
- print("Encerrando o programa...")
-
-else:
- 
- print("Tente novamente!")
+        if escolha == 7:
+             exit()
 
