@@ -1,7 +1,5 @@
 #Controle de Estoque
 
-from ast import Num
-
 estoque = []
 numestoque = []
 
